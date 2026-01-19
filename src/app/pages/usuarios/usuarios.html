@@ -1,0 +1,77 @@
+<div class="main-content">
+
+<h1>Gestión de Usuarios</h1>
+
+<div class="form-agregar">
+<input placeholder="🔍 Buscar usuario..." [(ngModel)]="filtro">
+<button (click)="mostrarAgregar = true">+ Agregar Usuario</button>
+</div>
+
+<h3>Tabla de usuarios</h3>
+
+<div class="table-container">
+<table class="tabla">
+<thead>
+<tr>
+<th>ID</th><th>Nombres</th><th>Apellidos</th><th>Correo</th><th>Rol</th><th>Estado</th><th>Acciones</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let u of usuariosFiltrados">
+<td>{{u.id}}</td>
+<td>{{u.nombres}}</td>
+<td>{{u.apellidos}}</td>
+<td>{{u.correo}}</td>
+<td>{{u.rol}}</td>
+<td>{{u.estado}}</td>
+<td class="acciones">
+<button (click)="editar(u)">✏️</button>
+<button (click)="eliminar(u.id)">🗑️</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- AGREGAR -->
+<div class="form-agregar" *ngIf="mostrarAgregar">
+<input placeholder="Nombres" [(ngModel)]="nuevo.nombres">
+<input placeholder="Apellidos" [(ngModel)]="nuevo.apellidos">
+<input placeholder="Correo" [(ngModel)]="nuevo.correo">
+
+<select [(ngModel)]="nuevo.rol">
+<option>Autor</option>
+<option>Editor</option>
+<option>Administrador</option>
+</select>
+
+<select [(ngModel)]="nuevo.estado">
+<option>Activo</option>
+<option>Inactivo</option>
+</select>
+
+<button (click)="agregar()">Guardar</button>
+</div>
+
+<!-- EDITAR -->
+<div *ngIf="editando" class="form-agregar">
+<input [(ngModel)]="editando.nombres">
+<input [(ngModel)]="editando.apellidos">
+<input [(ngModel)]="editando.correo">
+
+<select [(ngModel)]="editando.rol">
+<option>Autor</option>
+<option>Editor</option>
+<option>Administrador</option>
+</select>
+
+<select [(ngModel)]="editando.estado">
+<option>Activo</option>
+<option>Inactivo</option>
+</select>
+
+<button (click)="guardarEdicion()">Actualizar</button>
+<button (click)="editando=null">Cancelar</button>
+</div>
+
+</div>

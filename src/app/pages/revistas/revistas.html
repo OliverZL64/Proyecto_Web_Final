@@ -1,0 +1,80 @@
+<div class="main-content">
+
+    <h1>Gestión de Revistas</h1>
+
+    <!-- 🔍 Barra superior -->
+    <div class="form-agregar">
+        <input type="text" placeholder="🔍 Buscar revista..." [(ngModel)]="filtro">
+        <button (click)="mostrarAgregar = true">+ Agregar Revista</button>
+    </div>
+
+    <h3>Tabla de contenido</h3>
+    <!-- 📚 Tabla -->
+    <div class="table-container">
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Titulo</th>
+                    <th>Autor</th>
+                    <th>ISSN</th>
+                    <th>Área</th>
+                    <th>Fecha</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+<tr *ngFor="let r of revistasFiltradas">
+<td>{{r.id}}</td>
+<td>{{r.titulo}}</td>
+<td>{{r.autores}}</td>
+<td>{{r.issn}}</td>
+<td>{{r.categoria}}</td>
+<td>{{r.anio}}</td>
+<td>{{r.estado}}</td>
+<td class="acciones">
+<button (click)="editar(r)">✏️</button>
+<button (click)="eliminar(r.id)">🗑️</button>
+</td>
+</tr>
+</tbody>
+
+        </table>
+    </div>
+
+   <div class="form-agregar" *ngIf="mostrarAgregar">
+<input placeholder="Título" [(ngModel)]="nueva.titulo">
+<input placeholder="ISSN" [(ngModel)]="nueva.issn">
+<input placeholder="Categoría" [(ngModel)]="nueva.categoria">
+<input type="number" placeholder="Año" [(ngModel)]="nueva.anio">
+<input placeholder="Autores" [(ngModel)]="nueva.autores">
+
+<select [(ngModel)]="nueva.estado">
+<option>Activa</option>
+<option>En Revisión</option>
+<option>Archivada</option>
+</select>
+
+<button (click)="agregar()">Guardar</button>
+</div>
+
+
+    <div *ngIf="editando" class="form-agregar">
+<input placeholder="título" [(ngModel)]="editando.titulo">
+<input placeholder="ISSN" [(ngModel)]="editando.issn">
+<input placeholder="Categoría" [(ngModel)]="editando.categoria">
+<input type="number" placeholder="Año" [(ngModel)]="editando.anio">
+<input placeholder="Autores" [(ngModel)]="editando.autores">
+
+<select [(ngModel)]="editando.estado">
+<option>Activa</option>
+<option>En Revisión</option>
+<option>Archivada</option>
+</select>
+
+<button (click)="guardarEdicion()">Actualizar</button>
+<button (click)="editando = null">Cancelar</button>
+</div>
+
