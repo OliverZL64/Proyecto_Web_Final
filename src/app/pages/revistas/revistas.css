@@ -1,0 +1,135 @@
+h1 {
+    margin-bottom: 20px;
+}
+
+/* Barra superior */
+.top-bar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.top-bar input {
+    flex: 1;
+}
+
+/* Tabla tipo card */
+.table-container {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    border-radius: 14px;
+    padding: 10px 20px 20px 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+}
+
+.tabla th {
+    text-align: left;
+    padding: 12px;
+    font-size: 15px;
+    opacity: 0.8;
+}
+
+.tabla td {
+    padding: 12px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+.tabla tr:hover {
+    background: rgba(255,255,255,0.08);
+}
+
+/* Botones acciones */
+.acciones button {
+    margin-right: 6px;
+    border-radius: 6px;
+    padding: 6px 10px;
+    background: #e94545;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.acciones button:hover {
+    background: #b82020;
+}
+
+/* Formulario inferior */
+.form-agregar {
+    margin-top: 25px;
+    background: rgba(255,255,255,0.10);
+    padding: 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.2);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 12px;
+    align-items: center;
+}
+
+.form-agregar input,
+.form-agregar select {
+    margin: 0;
+}
+
+.form-agregar button {
+    height: 40px;
+}
+
+.form-agregar input,
+.form-agregar select {
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 8px;
+    padding: 10px 12px;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+/* Placeholder visible en oscuro */
+.form-agregar input::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+/* Hover */
+.form-agregar input:hover,
+.form-agregar select:hover {
+    border-color: rgba(255,255,255,0.5);
+}
+
+/* Focus bonito */
+.form-agregar input:focus,
+.form-agregar select:focus {
+    border-color: #e94545;
+    box-shadow: 0 0 6px rgba(0,255,208,0.4);
+}
+
+/* Select flechita más limpia */
+.form-agregar select {
+    cursor: pointer;
+}
+
+/* Botón guardar más pro */
+.form-agregar button {
+    background: linear-gradient(135deg, #e94545, #e94545);
+    border: none;
+    border-radius: 8px;
+    padding: 0 18px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.form-agregar button:hover {
+    transform: scale(1.05);
+}
+
